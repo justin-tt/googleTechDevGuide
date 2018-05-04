@@ -1,6 +1,10 @@
+import time
 S = "abppple"
 
 D = ["able", "ale", "apple", "bale", "kangaroo"]
+with open('words_alpha.txt') as file:
+    D = file.read().splitlines()
+file.close()
 
 
 def find_longest_word_subsequence_of_string(string, word_dict):
@@ -8,6 +12,7 @@ def find_longest_word_subsequence_of_string(string, word_dict):
     longest_word_length = 0
     longest_word = ""
     
+    # This solution isn't optimal because it goes through the whole dictionary
     for word in word_dict:
         valid_subsequence_length = return_valid_subsequence_length(word, string)
         if valid_subsequence_length > longest_word_length:
@@ -95,4 +100,14 @@ assert return_valid_subsequence_length("bale", "abppple") == 0
 assert return_valid_subsequence_length("ale", "abppple") == 3
 
 
+
+start = time.time()
 assert find_longest_word_subsequence_of_string(S, D) == "apple"
+end = time.time()
+print(end-start)
+
+start = time.time()
+print(find_longest_word_subsequence_of_string("wasdtearamelon", D))
+end = time.time()
+print(end-start)
+
