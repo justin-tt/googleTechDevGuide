@@ -19,7 +19,7 @@ class stringSplosion {
 			}
 		}
 
-		// System.out.println(exploded_string);
+		System.out.println(exploded_string);
 		return exploded_string;
 	}
 
